@@ -25,6 +25,14 @@ Route::get('/', function () {
 //     </html>';
 // });
 
+
+
+// Route::get('hello', function () use ($html) {
+//     return $html;
+// });
+
+Route::get('hello/{msg}',function ($msg) {
+
 $html = <<<EOF
 <html>
 <head>
@@ -36,12 +44,12 @@ h1 { font-size:100px; text-align:right; color: #eee; margin: -40px 0px -50px 0px
 </head>
 <body>
     <h1>Hello</h1>
+    <p>{$msg}</p>
     <p>This is sample page.</p>
     <p>これは、サンプルで作ったページです。</p>
 </body>
 </html>
 EOF;
 
-Route::get('hello', function () use ($html) {
-    return $html;
+return $html;
 });
