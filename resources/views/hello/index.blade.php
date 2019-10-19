@@ -8,11 +8,15 @@
 </head>
 <body>
   <h1>Blade/Index</h1>
-  <p>{{ $msg }}</p>
+  @if ($msg != '')
+  <p>こんにちは、{{ $msg }}さん。</p>
+  @else
+  <p>何か書いてください。</p>
+  @endif
   <form method="POST" action="/hello">
-  {{ csrf_field() }}
-  <input type="text" name="msg">
-  <input type="submit">
+    {{ csrf_field() }}
+    <input type="text" name="msg">
+    <input type="submit">
   </form>
 </body>
 </html>
