@@ -11,14 +11,10 @@
 |
 */
 
+use App\Http\Middleware\HelloMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::get('hello', function(){
-//     return view('hello.index');
-// });
-
-// Route::get('hello', 'HelloController@index');
-// Route::get('hello/{id?}', 'HelloController@index');
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+-> middleware(HelloMiddleware::class);
