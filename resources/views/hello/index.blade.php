@@ -1,4 +1,21 @@
-<html>
+
+@extends('layouts.helloapp')
+@section('title', 'Index')
+@section('menubar')
+@parent
+インデックスページ
+@endsection
+@section('content')
+<p>ここが本文のコンテンツです。</p>
+<p>必要なだけ記述できます。</p>
+@endsection
+@section('footer')
+copyright 2017 tuyano.
+@endsection
+
+
+
+{{-- <html>
 <head>
   <title>Hello/Index</title>
   <style>
@@ -8,15 +25,17 @@
 </head>
 <body>
   <h1>Blade/Index</h1>
-  <p>&#064;forディレクティブの例</p>
-  @foreach ($data as $item)
-  @if ($loop -> first)
-  <p>※データ一覧</p><ul>
-    @endif
-  <li>No,{{ $loop->iteration }}. {{ $item }}</li>
-  @if ($loop->last)
-  </ul><p>--ここまで</p>
-  @endif
-  @endforeach
+  <p>&#064;whileディレクティブの例</p>
+  <ol>
+  @php
+  $counter = 0;
+  @endphp
+  @while ($counter < count($data))
+  <li>{{ $data[$counter]}}</li>
+  @php
+  $counter++;
+  @endphp
+  @endwhile
+  </ol>
 </body>
-</html>
+</html> --}}
