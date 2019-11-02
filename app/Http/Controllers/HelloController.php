@@ -23,6 +23,24 @@ class HelloController extends Controller
     public function add(Request $request) {
         return view('hello.add');
     }
+    public function edit(Request $request){
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from people where id = :id',
+        $param);
+        return view('hello.edit',['form'=>$item[0]]);
+    }
+
+    public function update(Request $request){
+        $param = [
+            'id' => $request->id,
+            'name' => $request->name,
+            'mail' => $request->mail,
+            'age' => $request->age,
+        ];
+        DB::insert('update people set name = :name, mail = :mail, age = :age where id = :id', $param);
+        return redirect('/hello');
+    }
+
 
     public function create(Request $request) {
         $param = [
